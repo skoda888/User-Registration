@@ -37,7 +37,7 @@
       };
       
       async signUp(){
-        const data = AuthenticationService.insertUserData(this.userData);
+        AuthenticationService.insertUserData(this.userData);
       }
   }
 </script>

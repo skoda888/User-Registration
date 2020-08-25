@@ -20,7 +20,10 @@ app.get('/', (req, res) => {
 });
 
 // Error handling
-
+app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
+    console.error(err.stack)
+    res.status(500).send('Something broke!')
+});
 
 // Listen on port
 const port = process.env.PORT || 5000;

@@ -10,7 +10,7 @@ export default class AuthenticationService {
         // pass 
     }
 
-    static insertUserData(userData: IUserData){
+    static insertUserData(userData: IUserData): Promise<IUserData>{     // TO SET TYPE HERE: AxiosResponse not working
         // pass
         return axios.post(urlLogIn, {
             fullName: userData.fullName,

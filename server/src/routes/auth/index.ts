@@ -14,4 +14,8 @@ router.get('/signup', (req, res) => {
     res.send("Sign up route.");
 });
 
+router.post('/signup', (req, res) => {
+    res.json(req.body);
+})
+
 module.exports = router;

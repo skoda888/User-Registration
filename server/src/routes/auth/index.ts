@@ -1,6 +1,6 @@
 
-import express = require('express');
-const mongodb = require('mongodb');
+import express from 'express';
+import mongoose from 'mongoose';
 
 const router = express.Router();
 

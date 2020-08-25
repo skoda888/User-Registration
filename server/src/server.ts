@@ -1,7 +1,7 @@
 
 // Import dependencies
 import express = require('express'); 
-const cors = require('cors'); 
+import cors from 'cors';
 const volleyball = require('volleyball');
 
 // Create Express app

@@ -1,7 +1,11 @@
 
 export default class AccountService {
-    static insertAccount(): void {
+    static get_account(): void {
         
+    }
+
+    static insertAccount(): void {
+
     }
 
     static deleteAccount(): void {

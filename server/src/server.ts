@@ -2,18 +2,22 @@
 // Import dependencies
 import express = require('express'); 
 const cors = require('cors'); 
-const bodyParser = require('body-parser');
 
 // Create Express app
 const app = express();
+app.use(express.json());
+app.use(cors());
 
-const accountModule = require('./routes/account');
-app.use('/account', accountModule);
+const accountModule = require('./routes/auth');
+app.use('/auth', accountModule);
 
 // Requests
 app.get('/', (req, res) => {
-    res.redirect('/account/login');
+    res.redirect('/auth/login');
 });
+
+// Error handling
+
 
 // Listen on port
 const port = process.env.PORT || 5000;

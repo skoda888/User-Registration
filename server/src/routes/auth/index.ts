@@ -9,7 +9,8 @@ const router = express.Router();
 // connect to database and set up the schema
 mongoose.connect(databaseUrl, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 });
 
 // Get the default connection
@@ -34,11 +35,11 @@ router.get('/signup', (req, res) => {
 });
 
 router.post('/signup', (req, res) => {
-    res.json(req.body);
     const user = new usersModel(
         req.body
-    )
+    );
     user.save();
+    res.json("{status: added}");
 })
 
 module.exports = router;

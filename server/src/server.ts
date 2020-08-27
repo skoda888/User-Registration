@@ -13,7 +13,6 @@ app.use(volleyball);
 const accountModule = require('./routes/auth');
 app.use('/auth', accountModule);
 
-
 // Requests
 app.get('/', (req, res) => {
     res.redirect('/auth/login');
@@ -21,8 +20,8 @@ app.get('/', (req, res) => {
 
 // Error handling
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
-    console.error(err.stack)
-    res.status(500).send('Something broke!')
+    //console.error(err.stack)
+    res.status(500).send(err.message)
 });
 
 // Listen on port

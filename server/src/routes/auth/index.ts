@@ -2,6 +2,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import { usersModel, databaseUrl }  from '../../database-models/users-db'
+import { nextTick } from 'process';
 
 
 const router = express.Router();
@@ -34,12 +35,18 @@ router.get('/signup', (req, res) => {
     res.send("Sign up route.");
 });
 
-router.post('/signup', (req, res) => {
+router.post('/signup', (req, res, next) => {
     const user = new usersModel(
         req.body
     );
-    user.save();
-    res.json("{status: added}");
+    user.save(
+    ).then(() => {
+        res.json("{status: added}");
+    }).catch(error => {
+        //console.log("Error :(")
+        //res.send(`Error occured.\nStatus: ${error.code}\nMessage: ${error.message}`);
+        next(error);
+    });
 })
 
 module.exports = router;
